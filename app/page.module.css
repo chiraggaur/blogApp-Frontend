@@ -182,3 +182,28 @@
 .loginStatus:hover {
   color: blue;
 }
+.filterWrapper {
+  width: 40%;
+  display: flex;
+  position: absolute;
+  left: 300px;
+  top: 120px;
+  /* border: 2px solid black; */
+  justify-content: space-evenly;
+  align-items: center;
+}
+.filterButton {
+  width: 100px;
+  height: 40px;
+  border: none;
+  font-size: 22px;
+  font-weight: 600px;
+  /* background-color: rgb(180, 178, 178); */
+  border-radius: 6px;
+  color: gray;
+  background: none;
+  /* border: 2px solid black; */
+}
+.filterButton:hover {
+  color: black;
+}

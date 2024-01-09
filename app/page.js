@@ -13,6 +13,7 @@ export default function Page() {
   const [articles, fetchArticles] = useState("");
   const [Token, fetchedToken] = useState("");
   const [status, loginStatus] = useState("");
+  const [sorted, sortArticles] = useState("");
 
   // fetch data from backend using axios
 
@@ -22,9 +23,9 @@ export default function Page() {
       fetchedToken(token);
       try {
         const response = await axios.get(
-          "http://localhost:3001/api/articles/listarticles"
+          `http://localhost:3001/api/articles/listarticles?sort=${sorted}`
         );
-        console.log(response.data[0].author);
+        // console.log(response.data[0].author);
         fetchArticles(response.data);
       } catch (error) {
         console.error("Axios error:", error);
@@ -32,7 +33,7 @@ export default function Page() {
       }
     };
     fetchData();
-  }, []);
+  }, [sorted]);
 
   const LogoutButton = async (e) => {
     try {
@@ -54,6 +55,16 @@ export default function Page() {
   const handleStatus = () => {
     // Navigate to the article route with elm._id as a query parameter
     router.push("/login");
+  };
+
+  const sortByNewest = () => {
+    // Navigate to the article route with elm._id as a query parameter
+    sortArticles("newest");
+  };
+
+  const sortByOldest = () => {
+    // Navigate to the article route with elm._id as a query parameter
+    sortArticles("oldest");
   };
 
   return (
@@ -103,6 +114,14 @@ export default function Page() {
       </header>
 
       <div className={styles.outerwrapper}>
+        <div className={styles.filterWrapper}>
+          <button onClick={sortByNewest} className={styles.filterButton}>
+            Newest
+          </button>
+          <button onClick={sortByOldest} className={styles.filterButton}>
+            Oldest
+          </button>
+        </div>
         <div className={styles.articleswrapper}>
           {articles ? (
             articles.map((elm) => {
