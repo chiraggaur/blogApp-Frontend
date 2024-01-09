@@ -1,0 +1,95 @@
+.header {
+  width: 100vw;
+  height: 100px;
+  display: flex;
+  /* border: 2px solid black; */
+  justify-content: space-between;
+  align-items: center;
+}
+.logowrapper {
+  width: 300px;
+  height: 60px;
+  /* border: 2px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logotext {
+  font-size: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  color: black;
+}
+.navwrapper {
+  width: 400px;
+  height: 50%;
+  padding: 20px;
+  /* border: 2px solid black; */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.navlinks {
+  font-size: 18px;
+  font-weight: 500;
+  color: black;
+  text-decoration: none;
+}
+.createaccountbutton {
+  font-size: 18px;
+  width: 170px;
+  height: 50px;
+  font-weight: 200;
+  background-color: black;
+  color: aliceblue;
+  border-radius: 5px;
+}
+.formwrapper {
+  width: 500px;
+  height: 350px;
+  position: absolute;
+  top: 200px;
+  left: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid black; */
+}
+.signupform {
+  width: 400px;
+  height: 200px;
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid green;
+}
+.signupdetails {
+  width: 300px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 2px solid black; */
+}
+.signupbutton {
+  width: 150px;
+  height: 35px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  font-size: 15px;
+}
+.input {
+  height: 20px;
+  border: 1px solid black;
+  width: 150px;
+}
+.registertitle {
+  font-size: 25px;
+  font-weight: 400;
+}
