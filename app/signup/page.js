@@ -22,13 +22,20 @@ export default function Signup() {
     }
     try {
       if (!error || !passError || !emptyError) {
+        console.log(imageRef.current.files[0]);
+        const formData = new FormData();
+        formData.append("username", nameRef.current.value);
+        formData.append("email", emailRef.current.value);
+        formData.append("password", passwordRef.current.value);
+        formData.append("imageUrl", imageRef.current.files[0]);
+        // console.log(formData); use awit above to get useful login
         const response = await axios.post(
           `http://localhost:3001/api/user/signup`,
+          formData,
           {
-            username: nameRef.current.value,
-            email: emailRef.current.value,
-            password: passwordRef.current.value,
-            imageUrl: imageRef.current.value,
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
           }
         );
         signUpResponse(response.data.message);
@@ -97,7 +104,7 @@ export default function Signup() {
 
       <div className={styles.formwrapper}>
         <h4 className={styles.registertitle}>Register</h4>
-        <form className={styles.signupform}>
+        <form className={styles.signupform} encType="multipart/form-data">
           <div className={styles.signupdetails}>
             <label>Username</label>
             <input
@@ -132,7 +139,8 @@ export default function Signup() {
             <input
               ref={imageRef}
               className={styles.input}
-              type="text"
+              // accept="image/*" // added this extra thing now
+              type="file"
               name="profileImage"
             ></input>
           </div>

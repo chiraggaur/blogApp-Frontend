@@ -25,7 +25,7 @@ export default function Page() {
         const response = await axios.get(
           `http://localhost:3001/api/articles/listarticles?sort=${sorted}`
         );
-        // console.log(response.data[0].author);
+        // console.log(response.data);
         fetchArticles(response.data);
       } catch (error) {
         console.error("Axios error:", error);
@@ -135,6 +135,7 @@ export default function Page() {
                           src={elm.author.imageUrl}
                           alt="Profile Image"
                         />
+                        {/* {console.log(elm.author.imageUrl)} */}
                         <p className={styles.authorname}>
                           {elm.author.username}
                         </p>
